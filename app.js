@@ -2,7 +2,7 @@
 const express = require('express')
 const exphbs = require('express-handlebars')
 const bodyParser = require('body-parser')
-const rubbishGenerate = require('./rubbish.js')
+const generateRubbish = require('./rubbish.js')
 
 const Handlebars = require('handlebars')
 require('handlebars-helpers')({ handlebars: Handlebars })
@@ -21,7 +21,7 @@ app.get('/', (req, res) => {
 
 app.post('/', (req, res) => {
   const career = req.body.career
-  const rubbish = rubbishGenerate(career)
+  const rubbish = generateRubbish(career)
   res.render('index', { rubbish, career })
 })
 
