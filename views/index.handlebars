@@ -1,0 +1,94 @@
+<div class="container pb-5 pt-2">
+
+  {{!-- 標題 --}}
+  <div class="row pb-5" id="rubbish-for">
+    <div class="col-12 text-center">
+      <h2>你想對誰說幹話?</h2>
+    </div>
+  </div>
+
+  {{!-- 職業照片 --}}
+  <div class="row pb-3">
+    <div class="col-4">
+      <div class="career-img">
+        <img src="https://assets-lighthouse.s3.amazonaws.com/uploads/image/file/5668/angry-developer.jpg"
+          alt="engineer">
+      </div>
+
+
+    </div>
+    <div class="col-4">
+      <div class="career-img">
+        <img src="https://assets-lighthouse.s3.amazonaws.com/uploads/image/file/5667/angry-designer.jpg" alt="designer">
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="career-img">
+        <img src="https://assets-lighthouse.s3.amazonaws.com/uploads/image/file/5669/angry-founder.jpg" alt="funder">
+      </div>
+    </div>
+  </div>
+
+  {{!-- 選擇職業 --}}
+  <form method="POST" action="/">
+    <div class="row text-center">
+      <div class="col-4">
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="career" id="engineer" value="engineer"
+            {{#eq career 'engineer'}} checked {{/eq}} checked>
+          <label class="form-check-label" for="engineer">工程師</label>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="career" id="designer" value="designer"
+            {{#eq career 'designer'}} checked {{/eq}}>
+          <label class="form-check-label" for="designer">設計師</label>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="career" id="entrepreneur" value="entrepreneur"
+            {{#eq career 'entrepreneur'}} checked {{/eq}}>
+          <label class="form-check-label" for="entrepreneur">創業家</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="row pt-4 text-center">
+      <div class="col-12 ">
+        <button type="submit" class="btn btn-info btn-lg btn-block">產生幹話</button>
+      </div>
+    </div>
+  </form>
+
+  {{!-- 幹話視窗 --}}
+  {{#if rubbish}}
+  <div class="row mt-3 py-3 rubbish">
+    <div class="col-12">
+      <ul>
+        <li class="sent">
+          <p>{{rubbish.title}}</p>
+        </li>
+
+        <li class="replies">
+          <div class="avatar-thumbnail" data-target="avatar-thumbnail">
+            <img src="{{rubbish.avatar}}" alt="avatar">
+          </div>
+          <div class="replies-img">
+            <img src="../img/heart{{rubbish.heartIndex}}.jpg" alt="">
+          </div>
+        </li>
+
+        <li class="sent">
+          <div class="sent-img">
+            <img src="../img/no{{rubbish.noIndex}}.jpg" alt="">
+          </div>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+  {{/if}}
+
+</div>
